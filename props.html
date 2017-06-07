@@ -6,20 +6,60 @@
 </head>
 <body>
     <div id="prop"></div>
+    <div id="person"></div>
     <script src="node_modules/react/dist/react.js"></script>
     <script src="node_modules/react-dom/dist/react-dom.js"></script>
     <script>
       var ComponentWithProp = React.createClass({
+        propTypes: {
+          firstName: React.PropTypes.string.isRequired,
+          lastName: React.PropTypes.string.isRequired
+        },
         render: function () {
-          return React.DOM.span(null, "My name is " + this.props.name);
+          return React.DOM.span(null, "My name is " + this.props.firstName + " " + this.props.lastName);
         }
       });
 
       ReactDOM.render(
         React.createElement(ComponentWithProp, {
-          name: "Bob",
+          firstName: "Tyrion",
+          lastName: "Lanister"
         }),
         document.getElementById("prop")
+      );
+
+      var Person = React.createClass({
+        propTypes: {
+          firstName: React.PropTypes.string.isRequired,
+          middleName: React.PropTypes.string,
+          lastName: React.PropTypes.string.isRequired,
+          address: React.PropTypes.string,
+        },
+
+        getDefaultProps: function() {
+          return {
+            middleName: '',
+            address: 'n/a'
+          }
+        },
+
+        render: function () {
+          return React.DOM.div(
+            null,
+            React.DOM.p(null, "first name: " + this.props.firstName),
+            React.DOM.p(null, "middle name: " + this.props.middleName),
+            React.DOM.p(null, "last name: " + this.props.lastName),
+            React.DOM.p(null, "address: " + this.props.address)
+          )
+        }
+      });
+
+      ReactDOM.render(
+        React.createElement(Person, {
+          firstName: "Jon",
+          lastName: "Snow",
+        }),
+        document.getElementById("person")
       );
     </script>
 </body>
