@@ -5,15 +5,7 @@
     <title>Hello React</title>
 </head>
 <body>
-    <div id="app">
-        <!--  app goes here -->
-    </div>
-    <div id="custom">
-
-    </div>
-    <div id="nonwrapper">
-
-    </div>
+    <div id="app"></div>
     <script src="node_modules/react/dist/react.js"></script>
     <script src="node_modules/react-dom/dist/react-dom.js"></script>
     <script>
@@ -35,22 +27,5 @@
           document.getElementById("app")
         );
 
-        var Component = React.createClass({
-          render: function () {
-            return React.DOM.span(null, "I'm so custom");
-          }
-        });
-
-        var ComponentFactory = React.createFactory(Component);
-
-        ReactDOM.render(
-          ComponentFactory(),
-          document.getElementById("custom")
-        )
-
-        ReactDOM.render(
-          React.createElement("span", null, "Hello"),
-          document.getElementById("nonwrapper")
-        );
     </script>
 </body>

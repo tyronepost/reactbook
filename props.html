@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="prop"></div>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script>
+      var ComponentWithProp = React.createClass({
+        render: function () {
+          return React.DOM.span(null, "My name is " + this.props.name);
+        }
+      });
+
+      ReactDOM.render(
+        React.createElement(ComponentWithProp, {
+          name: "Bob",
+        }),
+        document.getElementById("prop")
+      );
+    </script>
+</body>
+</html>
