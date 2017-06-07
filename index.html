@@ -2,9 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Hello React</title>
 </head>
 <body>
-$END$
+    <div id="app">
+        <!--  app goes here -->
+    </div>
+    <div id="custom">
+
+    </div>
+    <div id="nonwrapper">
+
+    </div>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script>
+        ReactDOM.render(
+          React.DOM.h1(
+            {
+              id: "my-heading",
+              style: {
+                background: "black",
+                color: "white",
+                fontFamily: "Verdana",
+              }
+            },
+            React.DOM.span(null,
+              React.DOM.em(null, "Hell"),
+              "o"),
+            " World"
+          ),
+          document.getElementById("app")
+        );
+
+        var Component = React.createClass({
+          render: function () {
+            return React.DOM.span(null, "I'm so custom");
+          }
+        });
+
+        var ComponentFactory = React.createFactory(Component);
+
+        ReactDOM.render(
+          ComponentFactory(),
+          document.getElementById("custom")
+        )
+
+        ReactDOM.render(
+          React.createElement("span", null, "Hello"),
+          document.getElementById("nonwrapper")
+        );
+    </script>
 </body>
-</html>
