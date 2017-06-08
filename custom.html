@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 
-    <div id="custom"></div>
+<div id="custom"></div>
 
-    <script src="node_modules/react/dist/react.js"></script>
-    <script src="node_modules/react-dom/dist/react-dom.js"></script>
-    <script>
-      var Component = React.createClass({
-        render: function () {
-          return React.DOM.span(null, "I'm so custom");
-        }
-      });
+<script src="node_modules/react/dist/react.js"></script>
+<script src="node_modules/react-dom/dist/react-dom.js"></script>
+<script>
+  var Component = React.createClass({
+    render: function () {
+      return React.DOM.span(null, "I'm so custom");
+    }
+  });
 
-      var ComponentFactory = React.createFactory(Component);
+  var ComponentFactory = React.createFactory(Component);
 
-      ReactDOM.render(
-        ComponentFactory(),
-        document.getElementById("custom")
-      )
-    </script>
+  ReactDOM.render(
+    ComponentFactory(),
+    document.getElementById("custom")
+  )
+</script>
 </body>
 </html>

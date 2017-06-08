@@ -9,21 +9,28 @@
 <script src="node_modules/react/dist/react.js"></script>
 <script src="node_modules/react-dom/dist/react-dom.js"></script>
 <script>
+
   var TextAreaCounter = React.createClass({
     propTypes: {
-      text: React.PropTypes.string,
+      defaultValue: React.PropTypes.string,
     },
 
     getDefaultProps: function () {
       return {
-        text: '',
+        defaultValue: '',
       };
     },
 
     getInitialState: function () {
       return {
-        text: this.props.text,
+        text: this.props.defaultValue,
       }
+    },
+
+    componentWillReceiveProps: function (newProps) {
+      this.setState({
+        text: newProps.defaultValue,
+      });
     },
 
     _textChange: function (ev) {
@@ -44,9 +51,9 @@
     }
   });
 
-  ReactDOM.render(
+  var myTextAreaCounter = ReactDOM.render(
     React.createElement(TextAreaCounter, {
-      text: "Bob",
+      defaultValue: "Bob",
     }),
     document.getElementById("app")
   );
